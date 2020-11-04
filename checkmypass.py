@@ -41,9 +41,11 @@ def main(secret_pass):
 
 #Read external file to check passwords 
 if __name__ == '__main__':
-    fs= open(r'text.txt','r')
+    fs= open(r'text.txt','r',encoding = 'utf-8')
     password_list = []
     for line in fs.readlines():
-        password_list.append(line)
+        password_list.append(line.rstrip('\n'))
     print(password_list)
     sys.exit(main(password_list))
+
+    fs.close()
